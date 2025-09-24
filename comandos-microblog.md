@@ -11,17 +11,19 @@
 
 ```sql
 
+-- Criando o banco de dados "microblog_emerson"
 CREATE DATABASE microblog_emerson CHARACTER SET utf8mb4;
 
 ```
 
 ```sql
 
+-- Criando a tabela "usuarios"
 CREATE TABLE usuarios(
 
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
     tipo ENUM("admin","editor") NOT NULL
 
@@ -31,6 +33,7 @@ CREATE TABLE usuarios(
 
 ```sql
 
+-- Criando a tabela "noticias"
 CREATE TABLE noticias(
 
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
