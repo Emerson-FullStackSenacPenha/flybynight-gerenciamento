@@ -116,7 +116,25 @@ SELECT nome, descricao, fornecedor_id FROM produtos WHERE fornecedor_id = 4;
 
 -- Vesrão 2: Usamos uma JUNÇÃO de tabelas (produtos e fornecedores)
 SELECT produtos.nome, produtos.descricao, fornecedores.nome FROM produtos JOIN fornecedores ON produtos.fornecedor_id = fornecedores.id WHERE produtos.fornecedor_id = 4;
+
+/*
+
+-- Nome das colunas/campos precedidos do nome das tabelas correspondentes
+SELECT 
+produtos.nome, 
+produtos.descricao, 
+fornecedores.nome 
+
+-- Indicando as tabelas que serão "Juntadas"
+FROM produtos JOIN fornecedores 
+
+-- Regra de "JUNÇÃO" baseada nas chaves (estranjeira e primária)
+ON produtos.fornecedor_id = fornecedores.id 
+
+-- Condição para essa consulta (produtos do fornecedor Livraria)
+WHERE produtos.fornecedor_id = 4;
 -- ou WHERE fornecedor.id = 4
 
+*/
 
 ```
