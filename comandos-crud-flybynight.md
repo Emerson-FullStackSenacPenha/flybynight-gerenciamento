@@ -104,4 +104,14 @@ DELETE FROM produtos WHERE id = 4;
 -- O * representa todas as linhas/registros
 SELECT COUNT(*) FROM produtos;
 
+-- Exibindo apenas o nome, preço e quantidade dos produtos
+SELECT nome, preco, quantidade FROM produtos;
+
+-- Exibindo apenas o nome, preço e quantidade dos produtos, que custem acima de 1000 reais
+SELECT nome, preco, quantidade FROM produtos WHERE preco > 1000;
+
+-- Exibir somente o nome e a descrição dos produtos do fornecedor Livraria Demais da Conta
+SELECT nome, descricao, fornecedor_id FROM produtos WHERE fornecedor_id = 4;
+
+
 ```
