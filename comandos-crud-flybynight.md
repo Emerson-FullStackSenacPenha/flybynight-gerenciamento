@@ -116,5 +116,7 @@ SELECT nome, descricao, fornecedor_id FROM produtos WHERE fornecedor_id = 4;
 
 -- Vesrão 2: Usamos uma JUNÇÃO de tabelas (produtos e fornecedores)
 SELECT produtos.nome, produtos.descricao, fornecedores.nome FROM produtos JOIN fornecedores ON produtos.fornecedor_id = fornecedores.id WHERE produtos.fornecedor_id = 4;
+-- ou WHERE fornecedor.id = 4
+
 
 ```
