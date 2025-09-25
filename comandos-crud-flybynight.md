@@ -72,3 +72,13 @@ INSERT INTO lojas_produtos(loja_id, produto_id, estoque) VALUES
 (4, 1, 5);
 
 ```
+
+## Atualizando registros
+
+```sql
+
+UPDATE fornecedores SET nome = 'Distribuidora XYZ' WHERE id = 3;
+
+UPDATE produtos SET preco = 2600.77, quantidade = 15 WHERE id = 1;
+
+```
