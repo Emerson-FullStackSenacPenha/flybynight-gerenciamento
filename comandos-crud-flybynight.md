@@ -96,3 +96,12 @@ DELETE FROM produtos WHERE id = 4;
 
 ```
 
+## Realizando consultas para visualização de dados
+
+```sql
+
+-- Contando quantos registros existem na tabela produtos
+-- O * representa todas as linhas/registros
+SELECT COUNT(*) FROM produtos;
+
+```
