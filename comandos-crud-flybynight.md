@@ -95,3 +95,4 @@ UPDATE lojas_produtos SET estoque = 7 WHERE loja_id = 4 AND produto_id = 1;
 DELETE FROM produtos WHERE id = 4;
 
 ```
+
