@@ -110,8 +110,11 @@ SELECT nome, preco, quantidade FROM produtos;
 -- Exibindo apenas o nome, preço e quantidade dos produtos, que custem acima de 1000 reais
 SELECT nome, preco, quantidade FROM produtos WHERE preco > 1000;
 
+-- Vesrão 1: Só considera a tabela produtos
 -- Exibir somente o nome e a descrição dos produtos do fornecedor Livraria Demais da Conta
 SELECT nome, descricao, fornecedor_id FROM produtos WHERE fornecedor_id = 4;
 
+-- Vesrão 2: Usamos uma JUNÇÃO de tabelas (produtos e fornecedores)
+SELECT produtos.nome, produtos.descricao, fornecedores.nome FROM produtos JOIN fornecedores ON produtos.fornecedor_id = fornecedores.id WHERE produtos.fornecedor_id = 4;
 
 ```
