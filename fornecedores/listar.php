@@ -7,7 +7,12 @@ require_once "../src/fornecedor_crud.php";
 $fornecedores = buscarFornecedores($conexao);
 
 // Testando a exibição dos dados, só para programadores
-// var_dump($fornecedores);
+
+/*
+echo "<pre>";
+var_dump($fornecedores);
+echo "</pre>";
+*/
 
 ?>
 
@@ -35,11 +40,11 @@ $fornecedores = buscarFornecedores($conexao);
 
         <!-- As linhas (tr/td) abaixo serão geradas dinamicamente, ou seja, usando um loop (foreach) no array ($fornecedores) -->
 
-        <?php foreach($fornecedores as $fornecedore) { // ou : ?>
+        <?php foreach($fornecedores as $fornecedor) { // ou : ?>
 
             <tr>
-                <td>Aqui vem o ID</td>
-                <td>Aqui vem o Nome</td>
+                <td> <?=$fornecedor['id']?> </td>
+                <td> <?=$fornecedor['nome']?> </td>
             </tr>
 
         <?php } // ou endforeach; ?>        
