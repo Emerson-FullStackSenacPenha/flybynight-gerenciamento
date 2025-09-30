@@ -2,6 +2,20 @@
 
 require_once "../src/fornecedor_crud.php";
 
+/* Se o formulário com método post for acionado */
+if($_SERVER['REQUEST_METHOD'] === 'POST' ){
+    // Então vamos pegar o valor do campo chamado nome (via atributo NAME)
+    $nome = $_POST['nome'];
+
+    // Chamamos a função, passamos os dados de conexão e o valor do nome digitado
+    inserirFornecedor($conexao, $nome);
+
+    // Redirecionarmos para a página listar.php
+    header("location:listar.php");
+    exit;
+
+}
+
 ?>
 
 
