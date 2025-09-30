@@ -26,3 +26,24 @@ a:hover{
     text-decoration: underline;
 
 }
+
+table {
+
+    width: 80%;
+    margin-top: 10px;
+    border-collapse: collapse;
+
+}
+
+th, td {
+
+    border: 1px solid silver;
+    padding: 8px;
+
+}
+
+th {
+
+    background-color: beige;
+
+}

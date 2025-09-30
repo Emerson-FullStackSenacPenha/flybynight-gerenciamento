@@ -1,5 +1,6 @@
 <?php
 
+
 // Importando o arquivo de funções CRUD para Fornecedores
 require_once "../src/fornecedor_crud.php";
 
@@ -22,6 +23,7 @@ echo "</pre>";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Fornecedores</title>
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
     <h1>Fornecedores</h1>
