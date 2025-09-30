@@ -12,7 +12,7 @@
 <h2>Gerenciar</h2>
 
 <ul>
-    <li><a href="">Fornecedor</a></li>
+    <li><a href="fornecedores/listar.php">Fornecedor</a></li>
     <li><a href="">Produtos</a></li>
 </ul>
 
