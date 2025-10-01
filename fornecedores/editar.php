@@ -9,8 +9,21 @@ $id = $_GET['id'];
 
 $fornecedor =   buscarFornecedoresPorId($conexao, $id);
 
-?>
+if( $_SERVER['REQUEST_METHOD'] === 'POST' ){
+    
+    $nome = $_POST['nome'];
+    atualizarFornecedor($conexao, $nome, $id);
+    
+    // Após redirecionar usando header()...
+    header("location:listar.php");
 
+    // ... sempre encerre/interrompa o script (evitando erros/execuções adicionais)
+    exit;
+
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
