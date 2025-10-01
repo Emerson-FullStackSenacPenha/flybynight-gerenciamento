@@ -49,7 +49,7 @@ echo "</pre>";
                 <td> <?=$fornecedor['id']?> </td>
                 <td> <?=$fornecedor['nome']?> </td>
                 <td>
-                    <a href="editar.php">Editar</a>
+                    <a href="editar.php?id=<?=$fornecedor['id']?>">Editar</a>
                     <a href="">Excluir</a>
 
                 </td>
