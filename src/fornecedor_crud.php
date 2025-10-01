@@ -60,4 +60,21 @@ function buscarFornecedoresPorId($conexao, $id){
 
 }
 
+/*
+Recebe nome e id do fornecedor que será atualizado
+*/
+
+function atualizarFornecedor($conexao, $nome, $id){
+
+    $sql = "UPDATE fornecedores SET nome = :nome WHERE id = :id";
+    $consulta = $conexao->prepare($sql);
+    
+    // Vincular os valores aos parâmetros
+    $consulta->bindValue(":nome", $nome);
+    $consulta->bindValue(":id", $id);
+
+    $consulta->execute();
+
+}
+
 ?>
