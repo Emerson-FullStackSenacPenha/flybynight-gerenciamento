@@ -47,3 +47,52 @@ th {
     background-color: beige;
 
 }
+
+form {
+
+    background-color:  white;
+    padding: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 400px;
+
+}
+
+label {
+
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+}
+
+input {
+
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 12px;
+
+}
+
+button {
+
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
+
+button:hover, button:focus {
+
+    background-color: #037ea3;
+    
+}
