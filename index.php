@@ -13,7 +13,7 @@
 
 <ul>
     <li><a href="fornecedores/listar.php">Fornecedor</a></li>
-    <li><a href="">Produtos</a></li>
+    <li><a href="produtos/listar.php">Produtos</a></li>
 </ul>
 
 </body>
