@@ -51,7 +51,7 @@ echo "</pre>";
                 <td>
                     <!-- Link dinâmico, ou seja, a url/endereço utiliza parâmetro(s) e valor(es) dinâmico(s) -->
                     <a href="editar.php?id=<?=$fornecedor['id']?>">Editar</a>
-                    <a href="">Excluir</a>
+                    <a href="excluir.php?id=<?=$fornecedor['id']?>">Excluir</a>
 
                 </td>
             </tr>
