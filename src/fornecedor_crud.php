@@ -84,7 +84,7 @@ Receba o ID do fornecedor a ser excluido
 function excluirFornecedor($conexao, $id){
 
     $sql = "DELETE FROM fornecedores WHERE id = :id";
-    $sql = $conexao->prepare($sql);
+    $consulta = $conexao->prepare($sql);
     $consulta->bindValue(":id", $id);
     $consulta->execute();
 
