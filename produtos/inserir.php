@@ -53,6 +53,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' ){
             <input type="number" name="quantidade" id="quantidade" required min="0">
         </div>
 
+        <div>
+            <label for="fornecedor">Fornecedor:</label>
+            <select name="fornecedor" id="fornecedor">
+                <option value=""></option>
+            </select>
+        </div>
+
         <button type="submit">Salvar</button>
 
     </form>
