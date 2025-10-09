@@ -3,12 +3,11 @@
 require_once "../src/produto_crud.php";
 $produtos = buscarProdutos($conexao);
 
+/* Testando o código
 echo "<pre>";
-
 var_dump($produtos);
-
 echo "</pre>";
-
+*/
 
 ?>
 
@@ -40,13 +39,14 @@ echo "</pre>";
 
         <!-- As linhas (tr/td) abaixo serão geradas dinamicamente, ou seja, usando um loop (foreach) no array ($fornecedores) -->
 
-        
+        <?php foreach($produtos as $produto){ ?>
 
             <tr>
-                <td>  </td>
-                <td>  </td>
-                <td>  </td>
-                <td>  </td>
+                <td> <?=$produto['nome_produto']?> </td>
+                <td> <?=$produto['preco']?> </td>
+                <td> <?=$produto['quantidade']?> </td>
+                <td> <?=$produto['nome_fornecedor']?> </td>
+                
                 <td>
                     
                     <a href="editar.php">Editar</a>
@@ -55,7 +55,8 @@ echo "</pre>";
                 </td>
             </tr>
 
-        
+        <?php } ?>
+
 
     </table>
 
