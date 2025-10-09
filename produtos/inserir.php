@@ -1,25 +1,10 @@
 <?php
 
 require_once "../src/fornecedor_crud.php";
-
-/* Se o formulário com método post for acionado */
-if($_SERVER['REQUEST_METHOD'] === 'POST' ){
-    // Então vamos pegar o valor do campo chamado nome (via atributo NAME)
-    $nome = $_POST['nome'];
-
-    // Chamamos a função, passamos os dados de conexão e o valor do nome digitado
-    inserirFornecedor($conexao, $nome);
-
-    // Redirecionarmos para a página listar.php
-    header("location:listar.php");
-    exit;
-
-}
+$fornecedores = buscarFornecedores($conexao);
 
 ?>
-
-
-
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -57,6 +42,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' ){
             <label for="fornecedor">Fornecedor:</label>
             <select name="fornecedor" id="fornecedor">
                 <option value=""></option>
+
+
+                <?php foreach($fornecedores as $fornecedor): ?>
+                    <option value="<?=$fornecedor['id']?>"><?=$fornecedor['nome']?></option>
+                <?php endforeach; ?>
+
             </select>
         </div>
 
