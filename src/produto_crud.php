@@ -19,7 +19,8 @@ function buscarProdutos($conexao){
 
 function inserirProdutos($conexao, $nome, $descricao, $preco, $quantidade, $fornecedor){
 
-    $sql = "INSERT INTO produtos (nome, descricao, preco, quantidade, fornecedor_id) VALUES(:nome, :descricao, :preco, :quantidade, :fornecedor)";
+    $sql = "INSERT INTO produtos (nome, descricao, preco, quantidade, fornecedor_id) 
+            VALUES(:nome, :descricao, :preco, :quantidade, :fornecedor)";
 
     // Prepare o comando acima ANTES de executar no BD
     $consulta = $conexao->prepare($sql);
