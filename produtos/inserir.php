@@ -43,7 +43,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' ){
             <textarea name="descricao" id="descricao" rows="4" ></textarea>
         </div>
 
+        <div>
+            <label for="preco">Preço:</label>
+            <input type="number" name="preco" id="preco" required min="0" step="0.01">
+        </div>
 
+        <div>
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" name="quantidade" id="quantidade" required min="0">
+        </div>
 
         <button type="submit">Salvar</button>
 
