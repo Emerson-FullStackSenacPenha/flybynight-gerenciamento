@@ -19,17 +19,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' ){
 ?>
 
 
-<!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inserir Fornecedor</title>
+    <title>Inserir Produto</title>
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
     
-    <h1>Adicionando um novo fornecedor</h1>
+    <h1>Adicionando um novo produto</h1>
 
     <form action="" method="post">
 
@@ -37,6 +37,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' ){
             <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome" required>
         </div>
+
+        <div>
+            <label for="descricao">Descrição:</label>
+            <textarea name="descricao" id="descricao" rows="4" ></textarea>
+        </div>
+
+
+
         <button type="submit">Salvar</button>
 
     </form>
