@@ -1,27 +1,7 @@
 <?php
 
 require_once "../src/fornecedor_crud.php";
-
-// Pegando da url o valor do parêmtro chamado id
-$id = $_GET['id'];
-
-// Chamamos a função, passando dados de conexão e o id do fornecedor a ser buscado
-
-$fornecedor =   buscarFornecedoresPorId($conexao, $id);
-
-if( $_SERVER['REQUEST_METHOD'] === 'POST' ){
-    
-    $nome = $_POST['nome'];
-    atualizarFornecedor($conexao, $nome, $id);
-    
-    // Após redirecionar usando header()...
-    header("location:listar.php");
-
-    // ... sempre encerre/interrompa o script (evitando erros/execuções adicionais)
-    exit;
-
-}
-
+$fornecedores = buscarFornecedores($conexao);
 
 ?>
 
@@ -39,12 +19,39 @@ if( $_SERVER['REQUEST_METHOD'] === 'POST' ){
 
     <form action="" method="post">
 
-        <!-- Sempre coloque o código/id do regristro de forma oculta no formulário -->
-        <input type="hidden" name="id" value="<?=$fornecedor['id']?>">
-        <div>
+         <div>
             <label for="nome">Nome:</label>
-            <input  value="<?=$fornecedor['nome']?> " type="text" name="nome" id="nome" required>
+            <input type="text" name="nome" id="nome" required>
         </div>
+
+        <div>
+            <label for="descricao">Descrição:</label>
+            <textarea name="descricao" id="descricao" rows="4" ></textarea>
+        </div>
+
+        <div>
+            <label for="preco">Preço:</label>
+            <input type="number" name="preco" id="preco" required min="0" step="0.01">
+        </div>
+
+        <div>
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" name="quantidade" id="quantidade" required min="0">
+        </div>
+
+        <div>
+            <label for="fornecedor">Fornecedor:</label>
+            <select name="fornecedor" id="fornecedor">
+                <option value=""></option>
+
+
+                <?php foreach($fornecedores as $fornecedor): ?>
+                    <option value="<?=$fornecedor['id']?>"><?=$fornecedor['nome']?></option>
+                <?php endforeach; ?>
+
+            </select>
+        </div>    
+
         <button type="submit">Atualizar</button>
 
     </form>
