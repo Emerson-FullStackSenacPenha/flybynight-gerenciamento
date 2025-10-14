@@ -51,6 +51,7 @@ echo "</pre>";
                     <!-- ?id= (parametro de URL chamado id) -->
                     <a href="editar.php?id=<?=$produto['id']?>">Editar</a>
                     <a class="excluir" href="excluir.php?id=<?=$produto['id']?>">Excluir</a>
+                    <!-- Criado link dinâmico, dentro do URL ele indica qual o id do produto selecionado -->
 
                 </td>
             </tr>
