@@ -46,7 +46,7 @@ function buscarLojasPorId($conexao, $id){
 
 function atualizarLojas($conexao, $nome, $id){
 
-    $sql = "UPDATE fornecedores SET nome = :nome WHERE id = :id";
+    $sql = "UPDATE lojas SET nome = :nome WHERE id = :id";
     $consulta = $conexao->prepare($sql);
     
     // Vincular os valores aos parâmetros
