@@ -32,17 +32,19 @@ $produto = buscarProdutosPorId($conexao, $id);
 
         <div>
             <label for="descricao">Descrição:</label>
-            <textarea name="descricao" id="descricao" rows="4" ></textarea>
+            <textarea name="descricao" id="descricao" rows="4" ><?=$produto['descricao']?></textarea>
+            <!-- Não dê enter ou identação dentro da tag textarea, pois os espaços vão aparecer 
+             se fizer isso. portanto, deixe tudo na mesma linha -->
         </div>
 
         <div>
             <label for="preco">Preço:</label>
-            <input type="number" name="preco" id="preco" required min="0" step="0.01">
+            <input value="<?=$produto['preco']?>" type="number" name="preco" id="preco" required min="0" step="0.01">
         </div>
 
         <div>
             <label for="quantidade">Quantidade:</label>
-            <input type="number" name="quantidade" id="quantidade" required min="0">
+            <input value="<?=$produto['quantidade']?>" type="number" name="quantidade" id="quantidade" required min="0">
         </div>
 
         <div>
