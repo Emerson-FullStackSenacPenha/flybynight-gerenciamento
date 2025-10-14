@@ -48,9 +48,9 @@ echo "</pre>";
                 <td> <?=$produto['nome_fornecedor']?> </td>
                 
                 <td>
-                    
-                    <a href="editar.php">Editar</a>
-                    <a class="excluir" href="excluir.php">Excluir</a>
+                    <!-- ?id= (parametro de URL chamado id) -->
+                    <a href="editar.php?id=<?=$produto['id']?>">Editar</a>
+                    <a class="excluir" href="excluir.php?id=<?=$produto['id']?>">Excluir</a>
 
                 </td>
             </tr>
