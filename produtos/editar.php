@@ -7,10 +7,6 @@ require_once "../src/produto_crud.php";
 $id = $_GET['id'];
 $produto = buscarProdutosPorId($conexao, $id);
 
-echo "<pre>";
-var_dump($produto);
-echo "</pre>";
-
 ?>
 
 <!DOCTYPE html>
@@ -23,13 +19,15 @@ echo "</pre>";
 </head>
 <body>
     
-    <h1>Editar fornecedor</h1>
+    <h1>Editar produto</h1>
 
     <form action="" method="post">
 
+    <input type="hidden" name="id" value="<?=$produto['id']?>" >
+
          <div>
             <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" required>
+            <input value="<?=$produto['nome']?>" type="text" name="nome" id="nome" required>
         </div>
 
         <div>
