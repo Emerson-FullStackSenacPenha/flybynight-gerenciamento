@@ -3,6 +3,14 @@
 require_once "../src/fornecedor_crud.php";
 $fornecedores = buscarFornecedores($conexao);
 
+require_once "../src/produto_crud.php";
+$id = $_GET['id'];
+$produto = buscarProdutosPorId($conexao, $id);
+
+echo "<pre>";
+var_dump($produto);
+echo "</pre>";
+
 ?>
 
 <!DOCTYPE html>
