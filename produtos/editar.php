@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $quantidade = $_POST['quantidade'];
     $fornecedor = $_POST['fornecedor'];
 
-    atualizarProdutos($conexao, $id, $nome, $descricao, $preco, $quantidade, $fornecedor_id);
+    atualizarProdutos($conexao, $id, $nome, $descricao, $preco, $quantidade, $fornecedor);
 
     header("location:listar.php");
     exit;
