@@ -7,6 +7,21 @@ require_once "../src/produto_crud.php";
 $id = $_GET['id'];
 $produto = buscarProdutosPorId($conexao, $id);
 
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+    $nome = $_POST['nome'];
+    $descricao = $_POST['descricao'];
+    $preco = $_POST['preco'];
+    $quantidade = $_POST['quantidade'];
+    $fornecedor = $_POST['fornecedor'];
+
+    atualizarProdutos($conexao, $id, $nome, $descricao, $preco, $quantidade, $fornecedor_id);
+
+    header("location:listar.php");
+    exit;
+
+}
+
 ?>
 
 <!DOCTYPE html>

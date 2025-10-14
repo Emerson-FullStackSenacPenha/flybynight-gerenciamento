@@ -46,6 +46,29 @@ function buscarProdutosPorId($conexao, $id){
 
 }
 
+function atualizarProdutos($conexao, $id, $nome, $descricao, $preco, $quantidade, $fornecedor_id){
+
+    $sql = "UPDATE produtos SET 
+
+                nome = :nome,
+                descricao = :descricao,
+                preco = :preco,
+                quantidade = :quantidade,
+                fornecedor_id = :fornecedor_id
+
+            WHERE id = :id";
+
+    $consulta = $conexao->prepare($sql);
+    $consulta->bindValue(":nome", $nome);
+    $consulta->bindValue(":descricao", $descricao);
+    $consulta->bindValue(":preco", $preco);
+    $consulta->bindValue(":quantidade", $quantidade);
+    $consulta->bindValue(":fornecedor_id", $fornecedor_id);
+    $consulta->bindValue(":id", $id);
+
+    $consulta->execute();
+
+}
 
 ?>
 
