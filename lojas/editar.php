@@ -7,7 +7,7 @@ $id = $_GET['id'];
 
 // Chamamos a função, passando dados de conexão e o id do fornecedor a ser buscado
 
-$fornecedor =   buscarLojasPorId($conexao, $id);
+$lojas =   buscarLojasPorId($conexao, $id);
 
 if( $_SERVER['REQUEST_METHOD'] === 'POST' ){
     

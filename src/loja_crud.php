@@ -59,7 +59,7 @@ function atualizarLojas($conexao, $nome, $id){
 
 function excluirLojas($conexao, $id){
 
-    $sql = "DELETE FROM fornecedores WHERE id = :id";
+    $sql = "DELETE FROM lojas WHERE id = :id";
     $consulta = $conexao->prepare($sql);
     $consulta->bindValue(":id", $id);
     $consulta->execute();
