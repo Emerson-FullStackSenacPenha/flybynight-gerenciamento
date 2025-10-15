@@ -21,8 +21,8 @@ echo "</pre>";
 </head>
 <body>
     <h1>Produtos</h1>
-    <a href="../produtos/inserir.php">Novo produto</a>
-    <a href="../index.php">Voltar</a>
+    <a class="option" href="../produtos/inserir.php">Novo produto</a>
+    <a class="option" href="../index.php">Voltar</a>
     
     <!-- Estruturando uma tabela HTML para exibir os dados -->
 

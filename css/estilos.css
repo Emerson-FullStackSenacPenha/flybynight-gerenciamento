@@ -4,7 +4,8 @@ body {
     margin: 20px;
     background-image: linear-gradient(120deg, #67BDE4, #000C6E);
     background-repeat: no-repeat;
-    height: 100vh;
+    
+    min-height: 100vh;
 
 }
 
@@ -50,14 +51,15 @@ table {
 th, td {
 
     background-color: white;
-    border: 1px solid silver;
+    border: 1px solid rgba(192, 192, 192, 0.651);
     padding: 8px;
 
 }
 
 th {
 
-    background-color: beige;
+    background-color: #333;
+    color: white;
 
 }
 
@@ -107,6 +109,12 @@ margin: 10px;
 
 }
 
+form{
+
+    margin: 0 auto 30px auto;
+    
+}
+
 button, .option{
 
     background-color: #333;
@@ -122,7 +130,15 @@ button, .option{
 
 }
 
-button, .option:hover, button, .option:focus {
+button:hover, button:focus {
+
+    background-color: #f8f8f8;
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.option:hover, .option:focus {
 
     background-color: #f8f8f8;
     color: #333;
