@@ -2,13 +2,19 @@ body {
 
     font-family: Arial, Helvetica, sans-serif;
     margin: 20px;
-    background-color: #f8f9fa;
+    background-image: linear-gradient(120deg, #67BDE4, #000C6E);
+    background-repeat: no-repeat;
+    height: 100vh;
 
 }
 
-h1, h2 {
+.titulo, .subtitulo, ul, caption, h1, h2{
 
-    color: #333;
+    justify-content: center;
+    text-align: center;
+
+    color: white;
+    text-shadow: 1px 1px 1px black;
 
 }
 
@@ -29,14 +35,21 @@ a:hover{
 
 table {
 
-    width: 80%;
+    width: 100%;
     margin-top: 10px;
     border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px   ;
+
 
 }
 
 th, td {
 
+    background-color: white;
     border: 1px solid silver;
     padding: 8px;
 
@@ -80,19 +93,39 @@ input, textarea, select {
 
 }
 
-button {
+ul{
+
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+li{
+
+margin: 10px;
+
+}
+
+button, .option{
 
     background-color: #333;
     color: white;
     border: none;
     padding: 10px 16px;
     border-radius: 6px;
+    width: 100px;
     cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
 
 }
 
-button:hover, button:focus {
+button, .option:hover, button, .option:focus {
 
-    background-color: #037ea3;
-    
+    background-color: #f8f8f8;
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
 }

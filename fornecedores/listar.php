@@ -27,8 +27,8 @@ echo "</pre>";
 </head>
 <body>
     <h1>Fornecedores</h1>
-    <a href="../fornecedores/inserir.php">Novo fornecedor</a>
-    <a href="../index.php">Voltar</a>
+    <a class="option" href="../fornecedores/inserir.php">Novo fornecedor</a>
+    <a class="option" href="../index.php">Voltar</a>
     
     <!-- Estruturando uma tabela HTML para exibir os dados -->
 
