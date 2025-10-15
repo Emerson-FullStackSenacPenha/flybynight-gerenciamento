@@ -33,7 +33,7 @@ echo "</pre>";
     <!-- Estruturando uma tabela HTML para exibir os dados -->
 
     <table>
-        <caption>Relação de Fornecedores</caption>
+        <caption>Relação de Lojas</caption>
         
         <tr>
             <th>ID</th>

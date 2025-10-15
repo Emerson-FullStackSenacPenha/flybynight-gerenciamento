@@ -15,6 +15,7 @@
     <li><a href="fornecedores/listar.php"><button>Fornecedor</button></a></li>
     <li><a href="produtos/listar.php"><button>Produtos</button></a></li>
     <li><a href="lojas/listar.php"><button>Lojas</button></a></li>
+    <li><a href=""><button>Estoque (Lojas x Produtos)</button></a></li>
 </ul>
 
 </body>
