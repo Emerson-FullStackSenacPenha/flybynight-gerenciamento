@@ -6,12 +6,12 @@
     <title>Fly By Night - Gerenciamento</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
+<body >
     
 <h1 class="titulo">Fly By Night - CRUD com PHP e SQL</h1>
 <h2 class="subtitulo">Gerenciar</h2>
 
-<ul>
+<ul id="menus">
     <li><a href="fornecedores/listar.php"><button>Fornecedor</button></a></li>
     <li><a href="produtos/listar.php"><button>Produtos</button></a></li>
     <li><a href="lojas/listar.php"><button>Lojas</button></a></li>
