@@ -1,6 +1,7 @@
 <?php
 
 require_once "../src/estoque_crud.php";
+$estoque = buscarEstoque($conexao);
 
 ?>
 
@@ -14,5 +15,33 @@ require_once "../src/estoque_crud.php";
 </head>
 <body>
     
+    <h1>Estoque - (Lojas x Produtos)</h1>
+
+    <div id="links">
+    <a class="option" href="">+ Adicionar</a>
+    <a class="option" href="../index.php">Voltar</a>
+    </div>
+
+    <table>
+        <caption>Relação de Estoque</caption>
+
+        <tr>
+            <th>Loja</th>
+            <th>Produto</th>
+            <th>Estoque</th>
+        </tr>
+
+        <?php foreach($estoque as $etq){ ?>
+
+            <tr>
+                <td> <?=$etq['loja_id']?> </td>
+                <td> <?=$etq['produto_id']?> </td>
+                <td> <?=$etq['estoque']?> </td>
+            </tr>
+
+        <?php } ?>    
+
+    </table>
+
 </body>
 </html>
