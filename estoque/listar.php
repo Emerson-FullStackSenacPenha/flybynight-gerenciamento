@@ -29,14 +29,19 @@ $estoque = buscarEstoque($conexao);
             <th>Loja</th>
             <th>Produto</th>
             <th>Estoque</th>
+            <th>Ações</th>
         </tr>
 
         <?php foreach($estoque as $etq){ ?>
 
             <tr>
-                <td> <?=$etq['loja_id']?> </td>
-                <td> <?=$etq['produto_id']?> </td>
+                <td> <?=$etq['nome_loja']?> </td>
+                <td> <?=$etq['nome_produto']?> </td>
                 <td> <?=$etq['estoque']?> </td>
+                <td>
+                    <a href="">Editar</a>
+                    <a href="">Excluir</a>
+                </td>
             </tr>
 
         <?php } ?>    
