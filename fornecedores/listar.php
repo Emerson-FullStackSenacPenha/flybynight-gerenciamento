@@ -27,9 +27,11 @@ echo "</pre>";
 </head>
 <body>
     <h1>Fornecedores</h1>
-    <a class="option" href="../fornecedores/inserir.php">Novo fornecedor</a>
+
+    <div id="links">
+    <a class="option" href="../fornecedores/inserir.php">+ Adicionar</a>
     <a class="option" href="../index.php">Voltar</a>
-    
+    </div>
     <!-- Estruturando uma tabela HTML para exibir os dados -->
 
     <table>
