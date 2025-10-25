@@ -5,6 +5,8 @@ require_once "../conecta.php";
 function buscarEstoque($conexao){
      
     $sql = "SELECT
+            -- Selecionar a coluna 'id' da tabela 'lojas_produtos' para fazer edição com o php
+                lojas_produtos.loja_id,
             -- Selecione a coluna 'nome' da tabela 'lojas'
             -- E nomeie como 'nome_loja'
                 lojas.nome AS nome_loja,

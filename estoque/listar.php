@@ -39,7 +39,7 @@ $estoque = buscarEstoque($conexao);
                 <td> <?=$etq['nome_produto']?> </td>
                 <td> <?=$etq['estoque']?> </td>
                 <td>
-                    <a href="">Editar</a>
+                    <a href="editar.php?id=<?=$etq['loja_id']?>">Editar</a>
                     <a href="">Excluir</a>
                 </td>
             </tr>
