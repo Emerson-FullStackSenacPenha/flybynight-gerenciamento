@@ -18,7 +18,7 @@ $estoque = buscarEstoque($conexao);
     <h1>Estoque - (Lojas x Produtos)</h1>
 
     <div id="links">
-    <a class="option" href="">+ Adicionar</a>
+    <a class="option" href="inserir.php">+ Adicionar</a>
     <a class="option" href="../index.php">Voltar</a>
     </div>
 
