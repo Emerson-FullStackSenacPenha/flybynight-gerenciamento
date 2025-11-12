@@ -14,7 +14,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' ){
     $produtoId = $_POST['produto_id'];
     $estoqueQt = $_POST['estoque'];
     
-    // CORREÇÃO 1: Substituir a variável $quantidade por $estoqueQt
     inserirEstoque($conexao, $lojaId, $produtoId, $estoqueQt); 
 
     header("location:listar.php");

@@ -53,5 +53,30 @@ function inserirEstoque ($conexao,$lojaId, $produtoId, $estoque){
     
 }
 
+function buscarEstoquePorId($conexao, $id) {
+
+    $sql = "SELECT * FROM lojas_produtos WHERE loja_id = :loja_id";
+    $consulta = $conexao->prepare($sql);
+    $consulta->bindValue(":loja_id", $id);
+    $consulta->execute();
+    return $consulta->fetch();
+
+}
+
+function atualizarEstoque ($conexao, $lojaId, $estoque){
+
+    $sql = "UPDATE lojas_produtos SET 
+
+            estoque = :estoque
+        
+        WHERE loja_id = :loja_id";
+
+    $consulta = $conexao->prepare($sql);    
+
+    $consulta->bindValue(":estoque", $estoque);
+    $consulta->bindValue(":loja_id", $lojaId);
+
+    $consulta->execute();
+}
 
 ?>
