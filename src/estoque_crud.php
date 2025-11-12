@@ -79,4 +79,20 @@ function atualizarEstoque ($conexao, $lojaId, $estoque){
     $consulta->execute();
 }
 
+function excluirEstoquePorLoja($conexao, $lojaId) {
+    // A consulta DELETE FROM remove todos os registros (linhas) da tabela
+    // lojas_produtos onde o valor da coluna loja_id corresponde ao ID fornecido.
+    $sql = "DELETE FROM lojas_produtos WHERE loja_id = :loja_id";
+
+    $consulta = $conexao->prepare($sql);
+    
+    // Vincula o ID da loja fornecido como parâmetro ao placeholder :loja_id
+    $consulta->bindValue(":loja_id", $lojaId);
+
+    // Executa a exclusão.
+    return $consulta->execute();
+    
+    // Retorna true em caso de sucesso ou false/lança exceção em caso de falha.
+}
+
 ?>
