@@ -36,12 +36,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2>Editar Estoque</h2>
     
     <form action="" method="post">
-
+        
         <p><strong>Loja:</strong> <?= $loja_produto['nome_loja'] ?></p>
-        <p><strong>Produto:</strong> <?= $loja_produto['nome_produto'] ?></p>
-
         <input type="hidden" name="loja_id" value="<?= $loja_id ?>">
+        <!-- Input = formulário / hidden = oculto -->
+        <!-- name = nome / O id da loja que ira pro PHP como $_POST -->
+        <!-- value = valor do id da loja que veio do PHP via GET (ex: loja_id=3 na URL) -->
+
+        <br>
+
+        <p><strong>Produto:</strong> <?= $loja_produto['nome_produto'] ?></p>
         <input type="hidden" name="produto_id" value="<?= $produto_id ?>">
+
+        <br>
 
         <div>
             <label for="estoque">Quantidade:</label>
