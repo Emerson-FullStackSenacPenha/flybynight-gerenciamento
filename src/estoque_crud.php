@@ -6,31 +6,44 @@ require_once "../conecta.php";
 function buscarEstoque($conexao){
      
     $sql = "SELECT
-            -- Selecionar a coluna 'id' da tabela 'lojas_produtos' para fazer edição com o php
+            -- Selecionar a coluna 'loja_id' da tabela 'lojas_produtos' para fazer edição com o PHP
                 lojas_produtos.loja_id,
+
+            -- Selecionar também a coluna 'produto_id' da tabela 'lojas_produtos'
+            -- (Será usada junto com 'loja_id' para identificar unicamente cada registro de estoque)
+                lojas_produtos.produto_id,
+
             -- Selecione a coluna 'nome' da tabela 'lojas'
             -- E nomeie como 'nome_loja'
                 lojas.nome AS nome_loja,
-            -- Selecione a coluna 'nome' da tabela 'produto'
+
+            -- Selecione a coluna 'nome' da tabela 'produtos'
             -- E nomeie como 'nome_produto'
                 produtos.nome AS nome_produto,
+
             -- Selecione a coluna 'estoque' da tabela 'lojas_produtos'
                 lojas_produtos.estoque
             
             FROM lojas_produtos
             -- Da tabela 'lojas_produtos'
+
             JOIN lojas ON lojas.id = lojas_produtos.loja_id
-            -- Acesse a tabela 'lojas' e a coluna 'id' da tabela 'lojas' conecte com coluna 'loja_id' da tabela 'lojas_produtos' 
+            -- Acesse a tabela 'lojas' e a coluna 'id' da tabela 'lojas'
+            -- conecte com a coluna 'loja_id' da tabela 'lojas_produtos'
+
             JOIN produtos ON produtos.id = lojas_produtos.produto_id
-            -- Acesse a tabela 'produtos' e a coluna 'id' da tabela 'produtos' conecte com coluna 'produto_id' da tabela 'lojas_produtos'
+            -- Acesse a tabela 'produtos' e a coluna 'id' da tabela 'produtos'
+            -- conecte com a coluna 'produto_id' da tabela 'lojas_produtos'
+
             ORDER BY lojas.nome
-            -- Order cresente por padrão do SQL pela coluna 'nome' da tabela 'lojas'
+            -- Ordena em ordem crescente (padrão SQL) pela coluna 'nome' da tabela 'lojas'
             ";
             
     $consulta = $conexao->query($sql); 
     return $consulta->fetchAll(); 
+    // Retorna todos os registros encontrados como um array associativo
       
-} 
+}
 
 function inserirEstoque ($conexao,$lojaId, $produtoId, $estoque){
 
@@ -56,13 +69,35 @@ function inserirEstoque ($conexao,$lojaId, $produtoId, $estoque){
 
 function buscarEstoquePorId($conexao, $loja_id, $produto_id) {
 
-    $sql = "SELECT * FROM lojas_produtos WHERE loja_id = :loja_id AND produto_id = :produto_id";
+    $sql = "SELECT 
+                -- Seleciona o ID da loja e do produto da tabela 'lojas_produtos'
+                lojas_produtos.loja_id,
+                lojas_produtos.produto_id,
+
+                -- Pega o nome da loja da tabela 'lojas'
+                lojas.nome AS nome_loja,
+
+                -- Pega o nome do produto da tabela 'produtos'
+                produtos.nome AS nome_produto,
+
+                -- E também o estoque atual
+                lojas_produtos.estoque
+
+            FROM lojas_produtos
+            -- Faz um JOIN para unir os dados da tabela 'lojas_produtos' com 'lojas'
+            JOIN lojas ON lojas.id = lojas_produtos.loja_id
+            -- Faz um JOIN para unir os dados da tabela 'lojas_produtos' com 'produtos'
+            JOIN produtos ON produtos.id = lojas_produtos.produto_id
+            -- Filtra apenas o registro que corresponde à loja e ao produto informados
+            WHERE lojas_produtos.loja_id = :loja_id 
+              AND lojas_produtos.produto_id = :produto_id";
+
     $consulta = $conexao->prepare($sql);
     $consulta->bindValue(":loja_id", $loja_id);
     $consulta->bindValue(":produto_id", $produto_id);
     $consulta->execute();
-    return $consulta->fetch();
 
+    return $consulta->fetch();
 }
 
 function atualizarEstoque ($conexao, $estoque, $loja_id, $produto_id){

@@ -1,7 +1,7 @@
 <?php
 
-require_once "../src/estoque_crud.php";
-$estoque = buscarEstoque($conexao);
+    require_once "../src/estoque_crud.php";
+    $estoque = buscarEstoque($conexao);
 
 ?>
 
@@ -13,13 +13,14 @@ $estoque = buscarEstoque($conexao);
     <link rel="stylesheet" href="../css/estilos.css">
     <title>Listar Estoque</title>
 </head>
+
 <body>
-    
+
     <h1>Estoque - (Lojas x Produtos)</h1>
 
     <div id="links">
-    <a class="option" href="inserir.php">+ Adicionar</a>
-    <a class="option" href="../index.php">Voltar</a>
+        <a class="option" href="inserir.php">+ Adicionar</a>
+        <a class="option" href="../index.php">Voltar</a>
     </div>
 
     <table>
@@ -32,22 +33,27 @@ $estoque = buscarEstoque($conexao);
             <th>Ações</th>
         </tr>
 
-        <?php foreach($estoque as $etq){ ?>
+        <?php foreach ($estoque as $etq) { ?>
 
             <tr>
-                <td> <?=$etq['nome_loja']?> </td>
-                <td> <?=$etq['nome_produto']?> </td>
-                <td> <?=$etq['estoque']?> </td>
+                <td> <?= $etq['nome_loja'] ?> </td>
+                <td> <?= $etq['nome_produto'] ?> </td>
+                <td> <?= $etq['estoque'] ?> </td>
                 <td>
-                    <a href="editar.php?id=<?=$etq['loja_id']?>&outro=">Editar</a>
-                    <a href="">Excluir</a>
+                    <a href="editar.php?loja_id=<?= $etq['loja_id'] ?>&produto_id=<?= $etq['produto_id'] ?>">Editar</a>
+
+                    <a class="excluir" href="excluir.php?loja_id=<?= $etq['loja_id'] ?>&produto_id=<?= $etq['produto_id'] ?>"
+                        >
+                        Excluir
+                    </a>
                 </td>
+
             </tr>
 
-        <?php } ?>    
+        <?php } ?>
 
     </table>
 
+    <script src="../js/confirmar-exclusão.js" ></script>
 </body>
 </html>
-
