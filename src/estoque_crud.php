@@ -48,14 +48,18 @@ function buscarEstoque($conexao){
 function inserirEstoque ($conexao,$lojaId, $produtoId, $estoque){
 
     $sql = "INSERT INTO lojas_produtos (loja_id, produto_id, estoque) 
-            VALUES(:loja_id, :produto_id, :estoque)";
+            VALUES(:loja_id, :produto_id, :estoque)
 
-            /*Se o banco de dados detectar que a combinação de Loja/Produto já existe, ele não falha, mas executa o comando UPDATE.
+            /*
+            Se o banco de dados detectar que a combinação de Loja/Produto já existe, ele não falha, mas executa o comando UPDATE.
+            */
             ON DUPLICATE KEY UPDATE 
             
+            /*
             O banco pega o valor atual do estoque e soma a ele o novo valor enviado pelo formulário.
-            estoque = estoque + VALUES(estoque)"
             */
+            estoque = estoque + VALUES(estoque)";
+            
 
     $consulta = $conexao->prepare($sql);
 
