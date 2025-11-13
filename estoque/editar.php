@@ -1,19 +1,19 @@
 <?php 
 
-    require_once "../src/loja_crud.php";
-    require_once "../src/produto_crud.php";
     require_once "../src/estoque_crud.php";
 
-    $id = $_GET['id'];
-    $itemEstoque = buscarEstoquePorId($conexao, $id);
+    $loja_id = $_GET['loja_id'];
+    $produto_id = $_GET['produto_id'];
+    
+    $loja_produto = buscarEstoquePorId($conexao, $loja_id, $produto_id);
     
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
     
-        $idEstoque = $_POST['id'];
-        $novoEstoque = $_POST['estoque'];
+        $estoque = $_POST['estoque'];
+        
 
-        atualizarEstoque($conexao, $idEstoque, $novoEstoque);
+        atualizarEstoque ($conexao, $estoque, $loja_id, $produto_id);
 
         header("location:listar.php");
         exit;
@@ -36,29 +36,13 @@
 
     <form action="" method="post">
 
-        <input type="hidden" name="id" value="<?=$itemEstoque['id'] ?? $id ?>" >
-
-        <div>
-            <label for="loja_nome">Loja:</label>
-            <input value="<?=$itemEstoque['nome_loja']?>" type="text" name="loja_nome" id="loja_nome" readonly>
-        </div>
-        
-        <div>
-            <label for="produto_nome">Produto:</label>
-            <input value="<?=$itemEstoque['nome_produto']?>" type="text" name="produto_nome" id="produto_nome" readonly>
-        </div>
+        <input type="hidden" name="loja_id" value="<?= $loja_id ?>">
+        <input type="hidden" name="produto_id" value="<?= $produto_id ?>">
 
         <div>
             <label for="estoque">Quantidade:</label>
-            <input value="<?=$itemEstoque['estoque']?>" type="number" name="estoque" id="estoque" required min="0">
+            <input value="<?=$loja_produto['estoque']?>" type="number" name="estoque" id="estoque" required min="0">
         </div>
-
-
-
-
-
-
-
 
         <button type="submit">Atualizar</button>
 

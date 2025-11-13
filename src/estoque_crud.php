@@ -35,13 +35,14 @@ function buscarEstoque($conexao){
 function inserirEstoque ($conexao,$lojaId, $produtoId, $estoque){
 
     $sql = "INSERT INTO lojas_produtos (loja_id, produto_id, estoque) 
-            VALUES(:loja_id, :produto_id, :estoque)
+            VALUES(:loja_id, :produto_id, :estoque)";
 
-            /*Se o banco de dados detectar que a combinação de Loja/Produto já existe, ele não falha, mas executa o comando UPDATE.*/
+            /*Se o banco de dados detectar que a combinação de Loja/Produto já existe, ele não falha, mas executa o comando UPDATE.
             ON DUPLICATE KEY UPDATE 
             
-            /*O banco pega o valor atual do estoque e soma a ele o novo valor enviado pelo formulário.*/
-            estoque = estoque + VALUES(estoque)";
+            O banco pega o valor atual do estoque e soma a ele o novo valor enviado pelo formulário.
+            estoque = estoque + VALUES(estoque)"
+            */
 
     $consulta = $conexao->prepare($sql);
 
@@ -53,46 +54,47 @@ function inserirEstoque ($conexao,$lojaId, $produtoId, $estoque){
     
 }
 
-function buscarEstoquePorId($conexao, $id) {
+function buscarEstoquePorId($conexao, $loja_id, $produto_id) {
 
-    $sql = "SELECT * FROM lojas_produtos WHERE loja_id = :loja_id";
+    $sql = "SELECT * FROM lojas_produtos WHERE loja_id = :loja_id AND produto_id = :produto_id";
     $consulta = $conexao->prepare($sql);
-    $consulta->bindValue(":loja_id", $id);
+    $consulta->bindValue(":loja_id", $loja_id);
+    $consulta->bindValue(":produto_id", $produto_id);
     $consulta->execute();
     return $consulta->fetch();
 
 }
 
-function atualizarEstoque ($conexao, $lojaId, $estoque){
+function atualizarEstoque ($conexao, $estoque, $loja_id, $produto_id){
 
-    $sql = "UPDATE lojas_produtos SET 
-
-            estoque = :estoque
-        
-        WHERE loja_id = :loja_id";
+    $sql = "UPDATE lojas_produtos 
+            SET estoque = :estoque
+            WHERE loja_id = :loja_id AND produto_id = :produto_id";
 
     $consulta = $conexao->prepare($sql);    
 
     $consulta->bindValue(":estoque", $estoque);
-    $consulta->bindValue(":loja_id", $lojaId);
+    $consulta->bindValue(":loja_id", $loja_id);
+    $consulta->bindValue(":produto_id", $produto_id);
 
     $consulta->execute();
 }
 
-function excluirEstoquePorLoja($conexao, $lojaId) {
-    // A consulta DELETE FROM remove todos os registros (linhas) da tabela
-    // lojas_produtos onde o valor da coluna loja_id corresponde ao ID fornecido.
-    $sql = "DELETE FROM lojas_produtos WHERE loja_id = :loja_id";
+function excluirEstoquePorLoja($conexao, $loja_id, $produto_id) {
+    
+    $sql = "DELETE FROM lojas_produtos 
+            WHERE loja_id = :loja_id AND produto_id = :produto_id";
 
     $consulta = $conexao->prepare($sql);
     
     // Vincula o ID da loja fornecido como parâmetro ao placeholder :loja_id
-    $consulta->bindValue(":loja_id", $lojaId);
+    $consulta->bindValue(":loja_id", $loja_id);
+    $consulta->bindValue(":produto_id", $produto_id);
 
     // Executa a exclusão.
     return $consulta->execute();
     
-    // Retorna true em caso de sucesso ou false/lança exceção em caso de falha.
+    
 }
 
 ?>
