@@ -4,33 +4,33 @@ require_once "../conecta.php";
 
 
 function buscarEstoque($conexao){
-     
+
+            // Selecionar
     $sql = "SELECT
-            -- Selecionar a coluna 'loja_id' da tabela 'lojas_produtos' para fazer edição com o PHP
+            -- Selecionando 'loja_id' da tabela 'lojas_produtos'
                 lojas_produtos.loja_id,
 
-            -- Selecionar também a coluna 'produto_id' da tabela 'lojas_produtos'
-            -- (Será usada junto com 'loja_id' para identificar unicamente cada registro de estoque)
+            -- Selecionando 'produto_id' da tabela 'lojas_produtos'
                 lojas_produtos.produto_id,
 
-            -- Selecione a coluna 'nome' da tabela 'lojas'
-            -- E nomeie como 'nome_loja'
+            -- Selecionando 'nome' da tabela 'lojas' e nomeando como 'nome_loja'
                 lojas.nome AS nome_loja,
 
-            -- Selecione a coluna 'nome' da tabela 'produtos'
-            -- E nomeie como 'nome_produto'
+            -- Selecionando 'nome' da tabela 'produtos' e nomeando como 'nome_produto'
                 produtos.nome AS nome_produto,
 
-            -- Selecione a coluna 'estoque' da tabela 'lojas_produtos'
+            -- Selecionando 'estoque' da tabela 'lojas_produtos'
                 lojas_produtos.estoque
             
             FROM lojas_produtos
             -- Da tabela 'lojas_produtos'
 
+            -- Outra função, Conectar
             JOIN lojas ON lojas.id = lojas_produtos.loja_id
             -- Acesse a tabela 'lojas' e a coluna 'id' da tabela 'lojas'
             -- conecte com a coluna 'loja_id' da tabela 'lojas_produtos'
 
+            -- Outra função, Conectar
             JOIN produtos ON produtos.id = lojas_produtos.produto_id
             -- Acesse a tabela 'produtos' e a coluna 'id' da tabela 'produtos'
             -- conecte com a coluna 'produto_id' da tabela 'lojas_produtos'
